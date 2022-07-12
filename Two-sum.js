@@ -18,41 +18,21 @@ Output: [0,1]
 
 */
 
-const twoSum = (nums, target) =>{
-    var ans= [];
-
-    for(var i = 0 ; i <nums.length ; i++){
-        for(var j = nums.length ; j > i ; j--){
-            if(nums[i] + nums[j] == target){
-                var temp =[];
-                temp.push(i);
-                temp.push(j);
-                ans.push(temp);
-            }
-        }
-    }
-    return ans;
-}
-
 /**
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
  */
-const twoSumOpt = (nums,target) =>{
-    var ans = [];
-    const map = new Map();
-    nums.map((int,i) => map.set(int,i))
+const twoSum = (nums, target) => {
+    var ans = []
+    const map = new Map()
+    nums.map((int, i) => map.set(int, i))
     console.log(map)
     for (let i = 0; i < nums.length; i++) {
-        if(map.has(-nums[i]+target) && map.get(-nums[i]+target) !=i){
-            ans.push(i);
-            ans.push(map.get(-nums[i]+target));
-            return ans;
+        if (map.has(-nums[i] + target) && map.get(-nums[i] + target) != i) {
+            ans.push(i)
+            ans.push(map.get(-nums[i] + target))
+            return ans
         }
     }
 }
-
-const x = twoSumOpt([3,7,11,15],10);
-console.log(x)
-//|| 
